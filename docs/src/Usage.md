@@ -91,6 +91,14 @@ slither . --filter-paths "SafeMath.sol|ConvertLib.sol"
 
 Filter all the results only related to the file `SafeMath.sol` or `ConvertLib.sol`.
 
+For projects that vendor third-party dependencies under a directory such as `lib/`, you can exclude findings that are only related to those paths:
+
+```sh
+slither . --filter-paths "lib/"
+```
+
+Use path filtering only when you intentionally want to omit dependency-only findings. It can also hide genuine issues in excluded code, so scan dependencies separately when they are in scope for the audit.
+
 ### Suppressing findings
 
 Slither offers several ways to suppress results:
